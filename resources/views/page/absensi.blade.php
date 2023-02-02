@@ -87,6 +87,16 @@
     </div>
     {{-- End View Filter --}}
 
+    {{-- Tabs --}}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">All Attendance</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">My Attendance</a>
+        </li>
+    </ul>
+
     {{-- View Table Absensi --}}
     <div class="card mt-3 mb-5">
         <div class="card-body">

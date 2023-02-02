@@ -92,34 +92,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($employees as $emp)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Najib</td>
-                            <td>Admin</td>
-                            <td>20/2/2022</td>
-                            <td>Rp. 4.500.000,00</td>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $emp->name }}</td>
+                            <td>{{ $emp->position->name }}</td>
+                            <td>{{ $emp->created_at->format('d-m-Y') }}</td>
+                            <td>Rp. {{ $emp->salary->ammount }}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Admin</td>
-                            <td>20/2/2022</td>
-                            <td>Rp. 4.500.000,00</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Krab</td>
-                            <td>Marketing</td>
-                            <td>20/2/2022</td>
-                            <td>Rp. 4.500.000,00</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Larry</td>
-                            <td>Programmer</td>
-                            <td>20/2/2022</td>
-                            <td>Rp. 4.500.000,00</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

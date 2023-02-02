@@ -40,7 +40,8 @@ Route::post('/new-employee', [EmployeeController::class, 'store']);
 Route::get('/edit-employee/{user:username}/edit', [EmployeeController::class, 'edit']);
 Route::put('/employee/{user:username}', [EmployeeController::class, 'update']);
 
-
+// Salary
+Route::get('/salary', [SalaryController::class, 'show']);
 
 Route::get('/absensi', [AbsensiController::class, 'show']);
 Route::get('/new-absensi', [AbsensiController::class, 'new']);
@@ -48,6 +49,5 @@ Route::get('/edit-absensi', [AbsensiController::class, 'edit']);
 Route::get('/potongan', [PotonganController::class, 'index']);
 Route::get('/new-potongan', [PotonganController::class, 'new']);
 Route::get('/edit-potongan', [PotonganController::class, 'edit']);
-Route::get('/salary', [SalaryController::class, 'show']);
 Route::get('/report', [ReportController::class, 'show']);
 Route::get('/report-view', [ReportController::class, 'view']);
