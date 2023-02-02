@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Menu Browser Section */
+.navbar-nav .active {
+    background: #b38dff !important;
+    font-weight: 500;
+    border-radius: 10px;
+    color: white !important;
+}
+
+.navbar-nav .active .bi {
+    color: white !important;
+}
+
+.navbar-nav .nav-link {
+    padding: 10px;
+    margin-bottom: 30px;
+    color: rgb(46, 46, 46);
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgb(237, 152, 41);
+    color: white;
+    border-radius: 10px;
+}
+
+/* Sidebar Section */
+.sidebar {
+    right: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    height: 100vh;
+}
+
+.nav-pills .active {
+    color: white !important;
+    background-color: #b38dff !important;
+}
+
+.nav-pills .nav-item {
+    margin-top: 10px;
+}
+
+.nav-pills .nav-link {
+    color: rgb(22, 22, 22);
+}
+
+.nav-pills .nav-link:hover {
+    color: white;
+    background-color: rgb(237, 152, 41);
+    border-radius: 10px;
+}
+
+.btn-primer,
+.btn-primer-trans:active,
+.page-link:active {
+    background-color: #b38dff;
+    color: white;
+}
+
+.btn-primer-trans:hover {
+    background-color: rgb(237, 152, 41);
+    color: white;
+}
+
+.btn-primer:hover {
+    background-color: rgb(237, 152, 41);
+    color: white;
+}
+
+.form-check-input:checked {
+    background-color: #b38dff;
+    border-color: #b38dff;
+}
+
+.form-style {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid;
+    color: gray;
+    border-radius: 5px;
+    outline: none;
+}
+
+.table {
+    color: #b38dff;
+}
+
+.page-link,
+.nav-link {
+    color: #b38dff;
+}
+
+.page-link:hover,
+.nav-link:hover {
+    background-color: rgb(237, 152, 41);
+    color: white;
+}
