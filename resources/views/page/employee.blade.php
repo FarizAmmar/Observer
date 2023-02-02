@@ -161,7 +161,7 @@
                             {{-- Modify By Fariz 20230128 --}}
                             @if (auth()->user()->level_id == 1)
                             <td>
-                                <a href="/edit-employee/{{ $emp->username }}"
+                                <a href="/edit-employee/{{ $emp->username }}/edit"
                                     class="btn btn-primer p-1 px-2 rounded-pill" data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="Edit">
                                     <i class="bi bi-pencil-square"></i>

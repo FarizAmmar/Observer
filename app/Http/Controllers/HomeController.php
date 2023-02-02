@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,7 +17,8 @@ class HomeController extends Controller
     public function show()
     {
         return view('page.home', [
-            'title' => 'Home'
+            'title' => 'Home',
+            'count' => User::count()
         ]);
     }
 }

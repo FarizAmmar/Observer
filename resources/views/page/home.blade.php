@@ -8,8 +8,15 @@
         <div class="col-sm-3 mb-2">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Employee</h5>
-                    <i class="bi bi-people-fill" style="font-size: 50px;"></i>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title">Employee</h5>
+                            <i class="bi bi-people-fill" style="font-size: 50px;"></i>
+                        </div>
+                        <div class="col d-flex align-items-center justify-content-center">
+                            <h2>{{ $count }}</h2>
+                        </div>
+                    </div>
                 </div>
                 <a href="/employee" class="btn btn-primer">Visit</a>
             </div>
