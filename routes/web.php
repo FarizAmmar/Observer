@@ -37,7 +37,7 @@ Route::get('/new-employee', [EmployeeController::class, 'create']);
 Route::post('/new-employee', [EmployeeController::class, 'store']);
 
 // Edit
-Route::get('/edit-employee/{user:username}', [EmployeeController::class, 'edit']);
+Route::get('/edit-employee/{user:username}/edit', [EmployeeController::class, 'edit']);
 Route::put('/employee/{user:username}', [EmployeeController::class, 'update']);
 
 
