@@ -106,7 +106,8 @@
             </div>
 
             {{-- View Show by Enteris --}}
-            <div class="d-flex justify-content-start dataTables_length bs-select" id="dtBasicExample_length">
+            {{-- Remarks By Fariz 20230203 --}}
+            {{-- <div class="d-flex justify-content-start dataTables_length bs-select" id="dtBasicExample_length">
                 <label>Show
                     <select class="mx-2" name="dtBasicExample_length aria-controls=" dtBasicExample"
                         class="custom-select custom-select-sm form-style form-control-sm">
@@ -115,17 +116,20 @@
                         <option value="50">50</option>
                         <option value="100">100</option>
                     </select> entries</label>
-            </div>
+            </div> --}}
 
             {{-- View Pagination --}}
             <div class="d-flex justify-content-end" aria-label="Page navigation example">
-                <ul class="pagination">
+                {{-- Added By Fariz 20230203 --}}
+                {{ $employees->links() }}
+                {{-- Employee --}}
+                {{-- <ul class="pagination">
                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
+                </ul> --}}
             </div>
             {{-- End Pagination --}}
 

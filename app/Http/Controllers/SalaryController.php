@@ -12,7 +12,7 @@ class SalaryController extends Controller
     {
         return view('page.salary', [
             'title' => 'Salary',
-            'employees' => User::with(['position', 'level', 'salary'])->latest()->filter(request(['search', 'name', 'position', 'access']))->paginate(10)->withQueryString()
+            'employees' => User::with(['position', 'level', 'salary'])->latest()->paginate(10)
         ]);
     }
 }
