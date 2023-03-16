@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Level;
 use App\Models\Position;
+use App\Models\Product;
 use App\Models\Salary;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
@@ -30,10 +31,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'f.ammarsyq11@gmail.com',
             'password' => bcrypt('farnisa27'),
             'address' => 'Jl. Pembangunan 2 No.10 RT.04/06, Kedung Halang Talang. Kota Bogor',
-            'position_id' => '1',
-            'level_id' => '1',
-            'salary_id' => '3',
-            'status' => 'active',
             'remember_token' => Str::random(10)
         ]);
 
@@ -43,53 +40,30 @@ class DatabaseSeeder extends Seeder
             'email' => 'ainunnajib338@gmail.com',
             'password' => bcrypt('123456'),
             'address' => fake()->address(),
-            'position_id' => '1',
-            'level_id' => '1',
-            'salary_id' => '3',
-            'status' => 'active',
             'remember_token' => Str::random(10)
         ]);
 
-        // Level
-        Level::create([
-            'name' => 'Administrator'
+        // Product
+        Product::create([
+            'name' => 'Baju Batik',
+            'short-name' => 'baju-batik',
+            'description' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis animi iste dignissimos corrupti qui quam minus dicta voluptatum adipisci ratione!',
+            'price' => '50000',
+            'stock' => 5
         ]);
-        Level::create([
-            'name' => 'Employee'
+        Product::create([
+            'name' => 'Baju Koko Anak',
+            'short-name' => 'baju-koko-anak',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Id inventore modi nam sint labore. Facilis quasi perferendis hic, at est commodi a consequatur dolores. Quam consequatur dicta aliquid illum eaque.',
+            'price' => '200000',
+            'stock' => 8
         ]);
-
-
-        // Position
-        Position::create([
-            'name' => 'Developer'
-        ]);
-        Position::create([
-            'name' => 'Analyst Programmer'
-        ]);
-        Position::create([
-            'name' => 'Admin'
-        ]);
-        Position::create([
-            'name' => 'Director'
-        ]);
-        Position::create([
-            'name' => 'Project Manager'
-        ]);
-
-        // Salary
-        Salary::create([
-            'ammount' => '3.500.000',
-            'currency' => 'idr'
-        ]);
-
-        Salary::create([
-            'ammount' => '4.500.000',
-            'currency' => 'idr'
-        ]);
-
-        Salary::create([
-            'ammount' => '5.500.000',
-            'currency' => 'idr'
+        Product::create([
+            'name' => 'Celana Jeans Pria Vans',
+            'short-name' => 'celana-jeans-pria-vans',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tempora soluta, perferendis ullam cumque placeat nihil, quisquam inventore provident dignissimos expedita numquam, voluptatem sapiente qui illum! Voluptatem tenetur, excepturi fuga facilis esse doloremque aspernatur ipsa obcaecati ratione repellendus voluptatibus ad nulla autem labore aperiam quae in sed dignissimos, ab odio.',
+            'price' => '300000',
+            'stock' => 10
         ]);
     }
 }

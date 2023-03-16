@@ -10,9 +10,9 @@
 
 /* Menu Browser Section */
 .navbar-nav .active {
-    background: #b38dff !important;
+    background: #d92b09 !important;
     font-weight: 500;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white !important;
 }
 
@@ -27,9 +27,9 @@
 }
 
 .navbar-nav .nav-link:hover {
-    background: rgb(237, 152, 41);
+    background: #ff5b3b;
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 /* Sidebar Section */
@@ -44,7 +44,7 @@
 
 .nav-pills .active {
     color: white !important;
-    background-color: #b38dff !important;
+    background-color: #d92b09 !important;
 }
 
 .nav-pills .nav-item {
@@ -57,30 +57,30 @@
 
 .nav-pills .nav-link:hover {
     color: white;
-    background-color: rgb(237, 152, 41);
-    border-radius: 10px;
+    background-color: #ff5b3b;
+    border-radius: 5px;
 }
 
 .btn-primer,
 .btn-primer-trans:active,
 .page-link:active {
-    background-color: #b38dff;
+    background-color: #d92b09;
     color: white;
 }
 
 .btn-primer-trans:hover {
-    background-color: rgb(237, 152, 41);
+    background-color: #ff5b3b;
     color: white;
 }
 
 .btn-primer:hover {
-    background-color: rgb(237, 152, 41);
+    background-color: #ff5b3b;
     color: white;
 }
 
 .form-check-input:checked {
-    background-color: #b38dff;
-    border-color: #b38dff;
+    background-color: #d92b09;
+    border-color: #d92b09;
 }
 
 .form-style {
@@ -94,16 +94,32 @@
 }
 
 .table {
-    color: #b38dff;
+    color: #d92b09;
 }
 
 .page-link,
 .nav-link {
-    color: #b38dff;
+    color: #d92b09;
 }
 
 .page-link:hover,
 .nav-link:hover {
-    background-color: rgb(237, 152, 41);
+    background-color: #ff5b3b;
     color: white;
+}
+
+/* Produk Card */
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+
+.sb-title-items {
+    color: #d92b09;
+}
+
+.page-item.active .page-link {
+    background-color: #d92b09 !important;
+    border-color: #d92b09 !important;
 }

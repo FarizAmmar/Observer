@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Observer | {{ $title }}</title>
+    <title>Store | {{ $title }}</title>
     {{-- Bootsrap 5 --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     {{-- Icon Bootstrap 5 --}}
@@ -37,13 +37,13 @@
 
     @else
     {{-- Navbar --}}
-    @include('layouts.nav')
+    @include('partials.nav')
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 col-md-2 d-none d-lg-block">
+            <div class="col-md-3 d-none d-lg-block">
                 {{-- Sidebar --}}
-                @include('layouts.sidebar')
+                @include('partials.sidebar')
             </div>
             <div class="col">
                 {{-- Container --}}
@@ -53,13 +53,10 @@
     </div>
 
     {{-- footer --}}
-    @include('layouts.footer')
+    @include('partials.footer')
     @endif
 
 </body>
-
-{{-- JS Custom --}}
-<script src="/asset/js/app.js"></script>
 
 {{-- JS Bootstrap Popper --}}
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -76,5 +73,8 @@
 
 {{-- Jquery --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+{{-- JS Custom --}}
+<script src="/asset/js/app.js"></script>
 
 </html>
