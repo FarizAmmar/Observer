@@ -27,12 +27,26 @@
 </head>
 
 <body>
-    @if ($title === 'Login')
+    @if ($title == 'Login' )
     {{-- Content Login --}}
     @yield('content')
 
-    @elseif ($title === 'Report View')
-    {{-- Content View Report --}}
+    @elseif ($title === 'Details Product')
+    {{-- Navbar --}}
+    @include('partials.nav')
+
+    @yield('content')
+
+    @elseif ($title === 'Contact Us')
+    {{-- Navbar --}}
+    @include('partials.nav')
+
+    @yield('content')
+
+    @elseif ($title === 'FAQ')
+    {{-- Navbar --}}
+    @include('partials.nav')
+
     @yield('content')
 
     @else
@@ -41,7 +55,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 d-none d-lg-block">
+            <div class="col-3 d-none d-lg-block">
                 {{-- Sidebar --}}
                 @include('partials.sidebar')
             </div>
@@ -76,5 +90,11 @@
 
 {{-- JS Custom --}}
 <script src="/asset/js/app.js"></script>
+
+<script>
+    function submitFilterForm() {
+        document.getElementById("filter-form").submit();
+    }
+</script>
 
 </html>

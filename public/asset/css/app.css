@@ -123,3 +123,20 @@
     background-color: #d92b09 !important;
     border-color: #d92b09 !important;
 }
+
+.bg-primer {
+    background: #d92b09;
+    color: aliceblue;
+}
+
+.spinner-border {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: text-bottom;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border 0.75s linear infinite;
+    animation: spinner-border 0.75s linear infinite;
+}
