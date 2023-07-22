@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             'short_name' => 'kain-organza'
         ]);
 
-        // // Products
+        // Products
         // Product::create([
         //     'name' => 'Baju Batik',
         //     'category_id' => rand(1, 17),

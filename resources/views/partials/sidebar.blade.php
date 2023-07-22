@@ -30,10 +30,15 @@
             {{-- Button Filter --}}
             <div class="col-12">
                 <div class="row mt-4 mx-3">
-                    <div class="col-12">
+                    <div class="col-8">
                         <button class="btn btn-primer w-100" type="submit">
                             Filter
                         </button>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn btn-secondary" href="/">
+                            Clear
+                        </a>
                     </div>
                 </div>
             </div>

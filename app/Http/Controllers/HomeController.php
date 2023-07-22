@@ -21,12 +21,19 @@ class HomeController extends Controller
         if (request('filter') == 'termurah') {
             $products = Product::with('category')
                 ->search(request(['search', 'category']))
-                ->orderBy('price', 'desc')
+                ->orderByRaw('LENGTH(price), price ASC, id ASC')
                 ->paginate(100);
         } else if (request('filter') == 'termahal') {
             $products = Product::with('category')
                 ->search(request(['search', 'category']))
-                ->orderBy('price', 'asc')
+                ->orderByRaw('LENGTH(price) DESC, price DESC, id ASC')
+                ->paginate(100);
+        } else if (request('filter') == 'populer') {
+            $products = Product::with('category')
+                ->join('orders', 'products.id', '=', 'orders.product_id')
+                ->selectRaw('products.*, COUNT(orders.product_id) as ordered_count')
+                ->groupBy('products.id')
+                ->orderByDesc('ordered_count')
                 ->paginate(100);
         } else {
             $products = Product::with('category')
@@ -35,14 +42,17 @@ class HomeController extends Controller
                 ->paginate(100);
         }
 
+        // Count the number of products
+        $productsCount = $products->count();
+
         // Display the home page
         return view('page.home', [
             'title' => 'Home',
             'products' => $products,
+            'productsCount' => $productsCount,
             'categories' => Category::all(),
         ]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -79,6 +89,7 @@ class HomeController extends Controller
             'stock' => 'required',
             'email' => 'required|email|max:255',
             'address' => 'required|string|max:255',
+            'notes' => 'string|max:100',
             'city' => 'required|string|max:50',
             'postcode' => 'required|string|max:5',
             'size' => 'required',
@@ -110,6 +121,9 @@ class HomeController extends Controller
         $order->postcode = $validatedData['postcode'];
         $order->qty = $validatedData['stock'];
         $order->size = $validatedData['size'];
+        if ($request['notes'] != null) {
+            $order->notes = $validatedData['notes'];
+        }
         $order->product_id = $request->product_id;
 
 
@@ -117,19 +131,36 @@ class HomeController extends Controller
         // $product = $product->short_name;
 
         // Data message telegram
-        $data = [
-            'chat_id' => env('TELEGRAM_CHAT_ID'),
-            'text' => 'Nama : ' . $request->input('fname') . ' ' . $request->input('lname') . "\n" .
-                'Email : ' . $request->input('email') . "\n" .
-                'Nomer Hp : ' . $request->input('phone') . "\n" .
-                'Alamat : ' . $request->input('address') . ', ' . $request->input('city') . ', ' . $request->input('postcode') . "\n" .
-                'Nama Produk : ' . $product->name . "\n" .
-                'Ukuran : ' . strtoupper($request['size']) . "\n" .
-                'Jenis Ukuran : ' . ucfirst(strtolower($product->product_type)) . "\n" .
-                'Jenis Bahan : ' . $product->category->name . "\n" .
-                'Jumlah :' . ' ' . $request->input('stock') . "\n\n" .
-                'Note : Pesanan akan selesai dalam waktu 2-5 hari setelah pre order dan admin akan memberitahu via telegram jika pesanan sudah selesai. Pastikan nomor handphone terhubung dengan telegram.',
-        ];
+        if ($request['notes'] != null) {
+            $data = [
+                'chat_id' => env('TELEGRAM_CHAT_ID'),
+                'text' => 'Nama : ' . $request->input('fname') . ' ' . $request->input('lname') . "\n" .
+                    'Email : ' . $request->input('email') . "\n" .
+                    'Nomer Hp : ' . $request->input('phone') . "\n" .
+                    'Alamat : ' . $request->input('address') . ', ' . $request->input('city') . ', ' . $request->input('postcode') . "\n" .
+                    'Nama Produk : ' . $product->name . "\n" .
+                    'Ukuran : ' . strtoupper($request['size']) . "\n" .
+                    'Jenis Ukuran : ' . ucfirst(strtolower($product->product_type)) . "\n" .
+                    'Jenis Bahan : ' . $product->category->name . "\n" .
+                    'Jumlah :' . ' ' . $request->input('stock') . "\n\n" .
+                    '*Optional* :' . ' ' . "\n" . $request->input('notes') . "\n\n" .
+                    'Note : Pesanan akan selesai dalam waktu 2-5 hari setelah pre order dan admin akan memberitahu via telegram jika pesanan sudah selesai. Pastikan nomor handphone terhubung dengan telegram.',
+            ];
+        } else {
+            $data = [
+                'chat_id' => env('TELEGRAM_CHAT_ID'),
+                'text' => 'Nama : ' . $request->input('fname') . ' ' . $request->input('lname') . "\n" .
+                    'Email : ' . $request->input('email') . "\n" .
+                    'Nomer Hp : ' . $request->input('phone') . "\n" .
+                    'Alamat : ' . $request->input('address') . ', ' . $request->input('city') . ', ' . $request->input('postcode') . "\n" .
+                    'Nama Produk : ' . $product->name . "\n" .
+                    'Ukuran : ' . strtoupper($request['size']) . "\n" .
+                    'Jenis Ukuran : ' . ucfirst(strtolower($product->product_type)) . "\n" .
+                    'Jenis Bahan : ' . $product->category->name . "\n" .
+                    'Jumlah :' . ' ' . $request->input('stock') . "\n\n" .
+                    'Note : Pesanan akan selesai dalam waktu 2-5 hari setelah pre order dan admin akan memberitahu via telegram jika pesanan sudah selesai. Pastikan nomor handphone terhubung dengan telegram.',
+            ];
+        }
 
         // dd($data);
         // Save To Table Order

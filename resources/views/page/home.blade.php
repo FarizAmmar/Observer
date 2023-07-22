@@ -74,6 +74,7 @@
         <div class="text-center">No Product Found</div>
         @endif
         {{ $products->links() }}
+
     </div>
 </main>
 @endsection

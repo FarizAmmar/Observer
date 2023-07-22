@@ -1,5 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-light navbar-light fixed-bottom pt-3">
-    <div class="container-fluid d-flex justify-content-center align-content-center">
-        <h6>© Copyright 2023 | My Store.</h6>
+<footer class="bg-transparant text-center fixed-bottom">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>&copy; 2023 Your Company Name. All Rights Reserved.</p>
+            </div>
+        </div>
     </div>
-</nav>
+</footer>

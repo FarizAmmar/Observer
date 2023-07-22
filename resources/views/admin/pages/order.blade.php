@@ -128,6 +128,13 @@
                                  }}" readonly disabled style="background-color: rgb(213, 239, 247)">
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="address" class="col-sm-2 col-form-label">Notes</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="address" id="address" cols="15" rows="5" readonly
+                                    disabled style="background-color: rgb(213, 239, 247)">{{ $order->notes }}</textarea>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">

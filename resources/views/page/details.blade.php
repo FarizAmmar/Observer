@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-4">
                                     <span class="d-flex justify-content-end text-uppercase text-danger">{{
-                                        $product->product_type
+                                        $product->product_type == 'external' ? 'Luar Negeri' : ''
                                         }}</span>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                         @enderror
                     </div>
                     <div class="col-12">
-                        <label for="phone" class="form-label">No. Telp</label>
+                        <label for="phone" class="form-label">No. Telp / WA</label>
                         <input type="text" id="phone" name="phone"
                             class="form-control @error('phone') is-invalid @enderror" value="{{ @old('phone') }}"
                             placeholder="+62 0813-XXXX-XXXX">
@@ -189,6 +189,23 @@
                         <input class="form-control @error('postcode') is-invalid @enderror" type="text" name="postcode"
                             id="postcode" placeholder="51232" maxlength="5" value="{{ @old('postcode') }}">
                         @error('postcode')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="withnotes">
+                            <label class="form-check-label" for="withnotes">
+                                With Notes
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea class="form-control @error('notes')
+                            is-invaid
+                        @enderror" name="notes" id="notes" cols="20" rows="3" maxlength="100" disabled></textarea>
+                        @error('notes')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>

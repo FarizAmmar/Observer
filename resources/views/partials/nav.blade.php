@@ -16,14 +16,18 @@
         <div class="d-none d-lg-block">
             <a class="navbar-brand ms-3" href="/">
                 {{-- Logo | Brand --}}
-                <span>Store</span>
+                <span>
+                    <img src="/img/M.AC.png" style="width: 100px" alt="">
+                </span>
             </a>
         </div>
 
         <div class="d-lg-none">
             <a class="navbar-brand" href="#">
                 {{-- Logo | Brand --}}
-                <span>Store</span>
+                <span>
+                    <img src="/img/M.AC.png" style="width: 100px" alt="">
+                </span>
             </a>
         </div>
 
@@ -71,8 +75,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <form action="/category/" method="GET">
-            @csrf
+        <form action="/" method="GET">
             <div class="row py-4 mx-3 rounded" style="background: white">
                 {{-- Kategori --}}
                 <div class="col-12">
@@ -88,8 +91,10 @@
                         <div class="col-12 mt-3" id="jenis-kain-formal">
                             @foreach ($categories as $category)
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{$category->short_name }}"
-                                    id="{{$category->short_name }}">
+                                <input class="form-check-input" type="radio" value="{{$category->short_name }}"
+                                    name="category" id="{{ request('category') }}" {{
+                                    request('category')==$category->short_name
+                                ? 'checked' : '' }}>
                                 <label class="form-check-label" for="{{$category->short_name }}">
                                     {{$category->name }}
                                 </label>
@@ -101,10 +106,15 @@
                 {{-- Button Filter --}}
                 <div class="col-12">
                     <div class="row mt-4 mx-3">
-                        <div class="col-12">
-                            <button class="btn btn-primer w-100" type="submit" name="filter" id="filter">
+                        <div class="col-8">
+                            <button class="btn btn-primer w-100" type="submit">
                                 Filter
                             </button>
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-secondary" href="/">
+                                Clear
+                            </a>
                         </div>
                     </div>
                 </div>

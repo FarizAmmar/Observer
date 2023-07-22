@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->text('address');
+            $table->text('notes')->nullable();
             $table->string('city');
             $table->integer('postcode');
             $table->integer('qty');

@@ -59,15 +59,13 @@
                 {{-- Sidebar --}}
                 @include('partials.sidebar')
             </div>
-            <div class="col">
+            <div class="col-9">
                 {{-- Container --}}
                 @yield('content')
             </div>
         </div>
-    </div>
 
-    {{-- footer --}}
-    @include('partials.footer')
+    </div>
     @endif
 
 </body>
@@ -95,6 +93,16 @@
     function submitFilterForm() {
         document.getElementById("filter-form").submit();
     }
+
+    $(document).ready(function() {
+        $('#withnotes').change(function() {
+          if(this.checked) {
+            $('#notes').prop('disabled', false);
+          } else {
+            $('#notes').prop('disabled', true);
+          }
+        });
+      })
 </script>
 
 </html>
